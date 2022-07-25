@@ -15,6 +15,9 @@ class User(Base):
     firstname = Column(String(100))
     lastname = Column(String(100))
     email = Column(String(100), unique=True, nullable=False)
+    favorite_characters =  relationship('People', secondary="favorite_characters")
+    favorite_planets =  relationship('Planet', secondary="favorite_planets")
+    favorite_vehicles =  relationship('Vehicle', secondary="favorite_vehicles")
 
 class Favorite_character(Base):
     __tablename__ = 'favorite_characters'
